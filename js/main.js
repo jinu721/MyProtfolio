@@ -1,3 +1,19 @@
+ window.addEventListener('scroll', function() {
+            const scrollProgress = document.getElementById('scroll-progress');
+            const progressValue = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            scrollProgress.style.width = progressValue + '%';
+        });
+
+        // Optional: Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
 const navItems = document.getElementsByClassName("navbar-item");
 const txtNavItems = document.getElementsByClassName("txt-navbarItem");
 const sideMoreBtn = document.getElementById("mobile-menuBtn");
